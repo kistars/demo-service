@@ -1,0 +1,21 @@
+apiVersion: serving.octohelm.tech/v1alpha1
+kind: QService
+metadata:
+  annotations:
+    octohelm.tech/openAPISpecPath: /example
+spec:
+  envs:
+    SRV_EXAMPLE__Log_Level: ${{ SRV_EXAMPLE__Log_Level }}
+    SRV_EXAMPLE__Log_Output: ${{ SRV_EXAMPLE__Log_Output }}
+    SRV_EXAMPLE__Server_Debug: ${{ SRV_EXAMPLE__Server_Debug }}
+  image: ${{ PROJECT_IMAGE }}
+  livenessProbe:
+    action: http://:80/
+    initialDelaySeconds: 5
+    periodSeconds: 5
+  ports:
+  - "80"
+  readinessProbe:
+    action: http://:80/
+    initialDelaySeconds: 5
+    periodSeconds: 5

@@ -3,6 +3,7 @@ module srv-demo-suns
 go 1.16
 
 require (
+	git.querycap.com/tools/cmd v1.12.2 // indirect
 	git.querycap.com/tools/scaffold v0.2.1
 	git.querycap.com/tools/svcutil v0.5.7
 	github.com/go-courier/courier v1.4.1

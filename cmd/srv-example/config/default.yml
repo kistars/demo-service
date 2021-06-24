@@ -1,0 +1,4 @@
+GOENV: DEV
+SRV_EXAMPLE__Log_Level: debug
+SRV_EXAMPLE__Log_Output: Always
+SRV_EXAMPLE__Server_Debug: "true"
