@@ -1,4 +1,6 @@
 GOENV: DEV
+SRV_EXAMPLE__ClientID_Endpoint: ""
 SRV_EXAMPLE__Log_Level: debug
 SRV_EXAMPLE__Log_Output: Always
+SRV_EXAMPLE__Postgres_Endpoint: //127.0.0.1:5432
 SRV_EXAMPLE__Server_Debug: "true"

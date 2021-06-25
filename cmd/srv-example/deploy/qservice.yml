@@ -5,8 +5,10 @@ metadata:
     octohelm.tech/openAPISpecPath: /example
 spec:
   envs:
+    SRV_EXAMPLE__ClientID_Endpoint: ${{ SRV_EXAMPLE__ClientID_Endpoint }}
     SRV_EXAMPLE__Log_Level: ${{ SRV_EXAMPLE__Log_Level }}
     SRV_EXAMPLE__Log_Output: ${{ SRV_EXAMPLE__Log_Output }}
+    SRV_EXAMPLE__Postgres_Endpoint: ${{ SRV_EXAMPLE__Postgres_Endpoint }}
     SRV_EXAMPLE__Server_Debug: ${{ SRV_EXAMPLE__Server_Debug }}
   image: ${{ PROJECT_IMAGE }}
   livenessProbe:

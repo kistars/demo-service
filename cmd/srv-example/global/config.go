@@ -6,6 +6,7 @@ import (
 	"git.querycap.com/tools/svcutil/confhttp"
 	"git.querycap.com/tools/svcutil/conflogger"
 	"github.com/go-courier/courier"
+	"srv-demo-suns/pkg/clients/client_id"
 	"srv-demo-suns/pkg/models"
 )
 
@@ -26,15 +27,27 @@ var (
 	}
 )
 
+var (
+	// 添加一个上游服务 srv-id，ClientEndpoint负责对服务进行配置
+	idClient = &confhttp.ClientEndpoint{}
+
+	// 使用生成的NewClientxxx 方法实例化上游服务
+	ClientID = client_id.NewClientID(idClient)
+)
+
 // 配置初始化
 func init() {
+	conflogger.SetProjectName(App.String())
+
 	// 服务配置定义，需要配置的实体都需要在这里定义（若有数据库，上游服务，redis等也在这里定义）
 	var Config = &struct {
 		Log      *conflogger.Log
 		Server   *confhttp.Server
+		ClientID *confhttp.ClientEndpoint // 每个上游服务都需要在config 中添加，以便解析相关配置
 		Postgres *confpostgres.PostgresEndpoint
 	}{
 		Server:   server,
+		ClientID: idClient,
 		Postgres: Postgres,
 	}
 

@@ -5,6 +5,7 @@ import (
 	"github.com/go-courier/courier"
 	"github.com/go-courier/httptransport"
 	"github.com/go-courier/httptransport/openapi"
+	"srv-demo-suns/cmd/srv-example/apis/sample"
 	"srv-demo-suns/cmd/srv-example/apis/user"
 )
 
@@ -30,5 +31,7 @@ func init() {
 	{
 		// 在v0下注册真正的业务路径（也就是前面创建的user根路径）
 		RouterV0.Register(user.RouterUsers)
+		// getId路由
+		RouterV0.Register(sample.RootRouter)
 	}
 }

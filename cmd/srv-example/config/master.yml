@@ -1,0 +1,6 @@
+GOENV: DEV
+SRV_EXAMPLE__Log_Level: DEBUG
+SRV_EXAMPLE__Log_Output: Always
+SRV_EXAMPLE__Server_Debug: "true"
+SRV_EXAMPLE__Server_Port: 8080
+RV_EXAMPLE__ClientID_Endpoint: https://srv-id.base.d.rktl.work

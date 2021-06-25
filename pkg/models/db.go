@@ -7,7 +7,7 @@ import (
 )
 
 // 公共部分  db.go
-var DB = sqlx.NewDatabase("example")
+var DB = sqlx.NewDatabase("practice_example")
 
 // 自增主键定义，原则上每个表都要有这个字段
 type PrimaryID struct {
