@@ -1,10 +1,12 @@
 package global
 
 import (
+	"git.querycap.com/tools/confpostgres"
 	"git.querycap.com/tools/scaffold/pkg/appinfo"
 	"git.querycap.com/tools/svcutil/confhttp"
 	"git.querycap.com/tools/svcutil/conflogger"
 	"github.com/go-courier/courier"
+	"srv-demo-suns/pkg/models"
 )
 
 var (
@@ -17,14 +19,23 @@ var (
 	)
 )
 
+var (
+	// 数据库实例配置
+	Postgres = &confpostgres.PostgresEndpoint{
+		Database: models.DB,
+	}
+)
+
 // 配置初始化
 func init() {
 	// 服务配置定义，需要配置的实体都需要在这里定义（若有数据库，上游服务，redis等也在这里定义）
 	var Config = &struct {
-		Log    *conflogger.Log
-		Server *confhttp.Server
+		Log      *conflogger.Log
+		Server   *confhttp.Server
+		Postgres *confpostgres.PostgresEndpoint
 	}{
-		Server: server,
+		Server:   server,
+		Postgres: Postgres,
 	}
 
 	// ConfP 方法会对项目的配置进行解析和配置，本地使用local.yml，集群中用master.yml

@@ -3,3 +3,4 @@ SRV_EXAMPLE__Log_Level: debug
 SRV_EXAMPLE__Log_Output: Always
 SRV_EXAMPLE__Server_Debug: "true"
 SRV_EXAMPLE__Server_Port: 8080
+SRV_EXAMPLE__Postgres_Endpoint: postgresql://practice_example_rw:Abcd123qwe@pgsql-dev.middleware.huaweicloud.rktl.xyz:5432/practice_example?sslmode=disable
