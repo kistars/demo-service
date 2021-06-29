@@ -1,12 +1,12 @@
 package apis
 
 import (
+	"git.querycap.com/practice/srv-demo-suns/cmd/srv-example/apis/sample"
+	"git.querycap.com/practice/srv-demo-suns/cmd/srv-example/apis/user"
 	"git.querycap.com/tools/svcutil/confhttp"
 	"github.com/go-courier/courier"
 	"github.com/go-courier/httptransport"
 	"github.com/go-courier/httptransport/openapi"
-	"srv-demo-suns/cmd/srv-example/apis/sample"
-	"srv-demo-suns/cmd/srv-example/apis/user"
 )
 
 // 服务根路径（er / Liveness 需注册在跟路径下）

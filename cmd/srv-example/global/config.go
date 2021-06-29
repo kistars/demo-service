@@ -2,16 +2,16 @@ package global
 
 import (
 	"context"
+	"git.querycap.com/practice/srv-demo-suns/pkg/clients/client_id"
+	"git.querycap.com/practice/srv-demo-suns/pkg/models"
+	"git.querycap.com/practice/srv-demo-suns/pkg/utils/db"
+	"git.querycap.com/practice/srv-demo-suns/pkg/utils/idgen"
 	"git.querycap.com/tools/confpostgres"
 	"git.querycap.com/tools/scaffold/pkg/appinfo"
 	"git.querycap.com/tools/svcutil/confhttp"
 	"git.querycap.com/tools/svcutil/conflogger"
 	"github.com/go-courier/courier"
 	"github.com/go-courier/sqlx/v2/migration"
-	"srv-demo-suns/pkg/clients/client_id"
-	"srv-demo-suns/pkg/models"
-	"srv-demo-suns/pkg/utils/db"
-	"srv-demo-suns/pkg/utils/idgen"
 )
 
 var (

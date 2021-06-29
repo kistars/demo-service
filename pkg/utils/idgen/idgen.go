@@ -1,9 +1,8 @@
 package idgen
 
 import (
+	"git.querycap.com/practice/srv-demo-suns/pkg/constants/types"
 	"time"
-
-	"git.querycap.com/practice/srv-example/pkg/constants/types"
 
 	"github.com/go-courier/snowflakeid"
 )

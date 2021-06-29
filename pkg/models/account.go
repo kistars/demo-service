@@ -1,6 +1,6 @@
 package models
 
-import "srv-demo-suns/pkg/constants/types"
+import "git.querycap.com/practice/srv-demo-suns/pkg/constants/types"
 
 //go:generate tools gen model2 Account  --database=DB
 // 账户 --表注释

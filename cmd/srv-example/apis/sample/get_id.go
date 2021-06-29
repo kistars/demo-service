@@ -2,9 +2,9 @@ package sample
 
 import (
 	"context"
+	"git.querycap.com/practice/srv-demo-suns/cmd/srv-example/global"
 	"github.com/go-courier/courier"
 	"github.com/go-courier/httptransport/httpx"
-	"srv-demo-suns/cmd/srv-example/global"
 )
 
 func init() {

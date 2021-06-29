@@ -1,9 +1,8 @@
-module srv-demo-suns
+module git.querycap.com/practice/srv-demo-suns
 
 go 1.16
 
 require (
-	git.querycap.com/practice/srv-example v0.0.0-20210624033254-688001a6d130
 	git.querycap.com/tools/confpostgres v1.3.4
 	git.querycap.com/tools/datatypes v1.0.4
 	git.querycap.com/tools/scaffold v0.2.1

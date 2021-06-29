@@ -1,8 +1,8 @@
 package models
 
 import (
+	"git.querycap.com/practice/srv-demo-suns/pkg/constants/types"
 	"github.com/go-courier/sqlx/v2"
-	"srv-demo-suns/pkg/constants/types"
 	"time"
 )
 

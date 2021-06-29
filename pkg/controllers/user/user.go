@@ -2,12 +2,12 @@ package user
 
 import (
 	"context"
+	"git.querycap.com/practice/srv-demo-suns/pkg/constants/errors"
+	"git.querycap.com/practice/srv-demo-suns/pkg/models"
+	"git.querycap.com/practice/srv-demo-suns/pkg/utils/db"
+	"git.querycap.com/practice/srv-demo-suns/pkg/utils/idgen"
 	"github.com/go-courier/sqlx-pg/pgbuilder"
 	"github.com/go-courier/sqlx/v2"
-	"srv-demo-suns/pkg/constants/errors"
-	"srv-demo-suns/pkg/models"
-	"srv-demo-suns/pkg/utils/db"
-	"srv-demo-suns/pkg/utils/idgen"
 )
 
 func CreateUser(ctx context.Context, userBase models.UserBase) (*models.User, error) {
@@ -34,4 +34,8 @@ func CreateUser(ctx context.Context, userBase models.UserBase) (*models.User, er
 	}
 
 	return user, nil
+}
+
+func RetrieveUser() {
+
 }

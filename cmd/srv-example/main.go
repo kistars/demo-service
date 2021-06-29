@@ -1,9 +1,8 @@
 package main
 
 import (
-	"srv-demo-suns/cmd/srv-example/apis"
-	"srv-demo-suns/cmd/srv-example/global"
-
+	"git.querycap.com/practice/srv-demo-suns/cmd/srv-example/apis"
+	"git.querycap.com/practice/srv-demo-suns/cmd/srv-example/global"
 	"github.com/go-courier/courier"
 )
 

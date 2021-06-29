@@ -4,11 +4,11 @@ import (
 	fmt "fmt"
 	time "time"
 
+	git_querycap_com_practice_srv_demo_suns_pkg_constants_types "git.querycap.com/practice/srv-demo-suns/pkg/constants/types"
 	git_querycap_com_tools_datatypes "git.querycap.com/tools/datatypes"
 	github_com_go_courier_sqlx_v2 "github.com/go-courier/sqlx/v2"
 	github_com_go_courier_sqlx_v2_builder "github.com/go-courier/sqlx/v2/builder"
 	github_com_go_courier_sqlx_v2_datatypes "github.com/go-courier/sqlx/v2/datatypes"
-	srv_demo_suns_pkg_constants_types "srv-demo-suns/pkg/constants/types"
 )
 
 func (User) PrimaryKey() []string {
@@ -809,7 +809,7 @@ func (m *User) BatchFetchByUserIDList(db github_com_go_courier_sqlx_v2.DBExecuto
 
 }
 
-func (m *User) BatchFetchByUserTypeList(db github_com_go_courier_sqlx_v2.DBExecutor, values []srv_demo_suns_pkg_constants_types.UserType) ([]User, error) {
+func (m *User) BatchFetchByUserTypeList(db github_com_go_courier_sqlx_v2.DBExecutor, values []git_querycap_com_practice_srv_demo_suns_pkg_constants_types.UserType) ([]User, error) {
 
 	if len(values) == 0 {
 		return nil, nil
