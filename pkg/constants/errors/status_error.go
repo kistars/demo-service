@@ -37,6 +37,8 @@ const (
 const (
 	// @errTalk NotFound
 	NotFoundError StatusError = http.StatusNotFound*1e6 + iota + 1
+	// @errTalk 用户不存在
+	UserNotFoundError
 )
 
 const (
