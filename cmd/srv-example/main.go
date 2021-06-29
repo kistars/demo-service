@@ -8,6 +8,9 @@ import (
 )
 
 func main() {
+	global.App.AddCommand("migrate", func(args ...string) {
+		global.Migrate()
+	})
 	// 传入路由，运行服务
 	global.App.Execute(func(args ...string) {
 		courier.Run(apis.RouterRoot, global.Server())

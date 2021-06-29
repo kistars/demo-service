@@ -1,13 +1,17 @@
 package global
 
 import (
+	"context"
 	"git.querycap.com/tools/confpostgres"
 	"git.querycap.com/tools/scaffold/pkg/appinfo"
 	"git.querycap.com/tools/svcutil/confhttp"
 	"git.querycap.com/tools/svcutil/conflogger"
 	"github.com/go-courier/courier"
+	"github.com/go-courier/sqlx/v2/migration"
 	"srv-demo-suns/pkg/clients/client_id"
 	"srv-demo-suns/pkg/models"
+	"srv-demo-suns/pkg/utils/db"
+	"srv-demo-suns/pkg/utils/idgen"
 )
 
 var (
@@ -22,9 +26,11 @@ var (
 
 var (
 	// 数据库实例配置
-	Postgres = &confpostgres.PostgresEndpoint{
+	postgres = &confpostgres.PostgresEndpoint{
 		Database: models.DB,
 	}
+
+	idGen = idgen.MustNewIDGen()
 )
 
 var (
@@ -48,7 +54,7 @@ func init() {
 	}{
 		Server:   server,
 		ClientID: idClient,
-		Postgres: Postgres,
+		Postgres: postgres,
 	}
 
 	// ConfP 方法会对项目的配置进行解析和配置，本地使用local.yml，集群中用master.yml
@@ -58,8 +64,20 @@ func init() {
 }
 
 // 某些配置或全局实体可以通过 WithContextCompose 注入到服务的context中
-var WithContext = confhttp.WithContextCompose()
+var WithContext = confhttp.WithContextCompose(
+	db.WithDBExecutor(postgres),
+	idgen.WithIDGen(idGen),
+)
 
 func Server() courier.Transport {
 	return server.WithContextInjector(WithContext)
+}
+
+func Migrate() {
+	ctx, log := conflogger.NewContextAndLogger(context.Background(), "Migrate")
+	defer log.End()
+
+	if err := migration.Migrate(postgres.WithContext(ctx), nil); err != nil {
+		panic(err)
+	}
 }

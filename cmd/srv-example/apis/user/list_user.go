@@ -2,7 +2,6 @@ package user
 
 import (
 	"context"
-
 	"github.com/go-courier/courier"
 	"github.com/go-courier/httptransport/httpx"
 )
@@ -29,6 +28,7 @@ type UserDataList struct {
 	Total int    `json:"total"`
 }
 
+// courier框架中的最小处理单元，operator
 func (req *ListUser) Output(ctx context.Context) (interface{}, error) {
 	list := make([]User, 0)
 

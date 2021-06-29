@@ -7,7 +7,7 @@ import (
 )
 
 // 公共部分  db.go
-var DB = sqlx.NewDatabase("practice_example")
+var DB = sqlx.NewDatabase("mydb")
 
 // 自增主键定义，原则上每个表都要有这个字段
 type PrimaryID struct {
@@ -22,8 +22,6 @@ type OperationTimes struct {
 	CreatedAt types.Timestamp `db:"f_created_at,default='0'" json:"createdAt" `
 	// 更新时间
 	UpdatedAt types.Timestamp `db:"f_updated_at,default='0'" json:"updatedAt"`
-	// 删除时间
-	DeletedAt types.Timestamp `db:"f_deleted_at,default='0'" json:"-"`
 }
 
 func (times *OperationTimes) MarkUpdatedAt() {
@@ -35,7 +33,13 @@ func (times *OperationTimes) MarkCreatedAt() {
 	times.CreatedAt = times.UpdatedAt
 }
 
-func (times *OperationTimes) MarkDeletedAt() {
+type OperationTimesWithDeletedAt struct {
+	OperationTimes
+	// 删除时间
+	DeletedAt types.Timestamp `db:"f_deleted_at,default='0'" json:"-"`
+}
+
+func (times *OperationTimesWithDeletedAt) MarkDeletedAt() {
 	times.MarkUpdatedAt()
 	times.DeletedAt = times.UpdatedAt
 }

@@ -25,8 +25,8 @@ FROM ${DOCKER_REGISTRY}/ghcr.io/querycap/distroless/static-debian10:latest
 
 COPY --from=builder /go/src/cmd/srv-example/srv-example /go/bin/srv-example
 
-EXPOSE 80
 COPY --from=builder /go/src/cmd/srv-example/openapi.json /go/bin/openapi.json
+EXPOSE 80
 
 ARG PROJECT_NAME
 ARG PROJECT_VERSION
